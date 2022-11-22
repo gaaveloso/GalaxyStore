@@ -3,9 +3,11 @@ import andromeda from "../../img/andromeda.png"
 import triangulo from "../../img/triangulo.png"
 import centaurus from "../../img/centaurus.png"
 import Carrinho from "../Carrinho/Carrinho";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Main = (props) => {
+
+    const [carrinho, setCarrinho] = useState([])
 
     const obj = [
         {
@@ -27,9 +29,18 @@ const Main = (props) => {
             image: centaurus
         }
     ]
+    
+    useEffect(()=>{
+        
+    },[])
 
+    const onChangeItem = (event) => {
+        setCarrinho(event.target.value)
+    }
+    
     const adicionarCarrinho = (item) => {
-        console.log(`Esse produto custa ${item}`)
+        setCarrinho(item)
+        console.log(carrinho)
     }
 
     return (
@@ -39,10 +50,13 @@ const Main = (props) => {
                 <h1>{item.name}</h1>
                 <img src={item.image} alt={item.name} />
                 <p>Preço: {item.value}</p>
-                <button onClick={() => adicionarCarrinho(item.value)}>Adicionar ao carrinho</button>
+                <button onClick={() => adicionarCarrinho(item)} onChange={onChangeItem}>Adicionar ao carrinho</button>
             </Card>
             )}
-            <Carrinho/>
+            <Carrinho
+            carrinho={carrinho}
+            setCarrinho={setCarrinho}
+            />
         </Container>
     )
 }
