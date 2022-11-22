@@ -1,15 +1,24 @@
 import React from "react";
 
 const Carrinho = (props) => {
-    console.log(props.carrinho);
+
+    let totalCarrinho = 0
+    
+    for(let i=0;i < props.carrinho.length; i++){
+        totalCarrinho = totalCarrinho + props.carrinho[i].value
+    }
+
     return (
         <div>
             <h1>Carrinho: </h1>
             {props.carrinho.map((item, index)=>{
+                return (
                 <div key={index}>
-                    <p>{item}</p>
+                    <p>{item.name} - {item.value}</p>
                 </div>
+                )
             })}
+            <h1>Total: {totalCarrinho}</h1>
         </div>
     )
 }
