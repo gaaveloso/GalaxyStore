@@ -2,10 +2,10 @@ import React from "react";
 
 const Carrinho = (props) => {
 
-    let totalCarrinho = 0
+    let totalCarrinho = null
     
     for(let i=0;i < props.carrinho.length; i++){
-        totalCarrinho = totalCarrinho + props.carrinho[i].value
+        totalCarrinho = totalCarrinho + props.carrinho[i].precoTotal
     }
 
     return (
@@ -14,7 +14,7 @@ const Carrinho = (props) => {
             {props.carrinho.map((item, index)=>{
                 return (
                 <div key={index}>
-                    <p>{item.name} - {item.value}</p>
+                    <p>x{item.quantidade} {item.name} - {item.value} </p>
                 </div>
                 )
             })}
