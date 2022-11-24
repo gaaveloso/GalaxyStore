@@ -7,10 +7,12 @@ import GlobalStyled from './GlobalStyled';
 
 function App() {
 
+  const [pesquisa, setPesquisa] = useState("")
+
   return (
     <>
-      <Header/>
-      <Main />
+      <Header pesquisa={pesquisa} setPesquisa={setPesquisa} />
+      <Main pesquisa={pesquisa} setPesquisa={setPesquisa} />
       <Footer/>
       <GlobalStyled/>
     </>

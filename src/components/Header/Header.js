@@ -1,6 +1,11 @@
 import {Container} from "./HeaderStyled"
 
-const Header = () => {
+const Header = (props) => {
+
+    const handleSearch = (event) => {
+        props.setPesquisa(event.target.value)
+    }
+    
     return (
         <Container>
             <h1>Galaxy Store</h1>
@@ -9,7 +14,7 @@ const Header = () => {
             <label>Valor máximo: </label>
             <input type='number'/>
             <label>Pesquisar: </label>
-            <input type='text'/>
+            <input type='text' placeholder="Buscar..." onChange={handleSearch} value={props.pesquisa}/>
             <select>
                 <option>Crescente</option>
                 <option>Decrescente</option>

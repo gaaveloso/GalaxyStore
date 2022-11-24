@@ -3,7 +3,7 @@ import andromeda from "../../img/andromeda.png";
 import triangulo from "../../img/triangulo.png";
 import centaurus from "../../img/centaurus.png";
 import Carrinho from "../Carrinho/Carrinho";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Main = (props) => {
   const [carrinho, setCarrinho] = useState([]);
@@ -11,14 +11,14 @@ const Main = (props) => {
   const obj = [
     {
       id: 1,
-      name: "Galáxia de Andrômeda",
+      name: "Galaxia de Andromeda",
       value: 2500,
       image: andromeda,
       quantidade: null,
     },
     {
       id: 2,
-      name: "Galáxia do Triângulo",
+      name: "Galaxia do Triangulo",
       value: 1000,
       image: triangulo,
       quantidade: null,
@@ -53,7 +53,11 @@ const Main = (props) => {
 
   return (
     <Container>
-      {obj.map((item, index) => (
+      {obj
+      .filter((item) => {
+        return props.pesquisa ? item.name.toLowerCase().includes(props.pesquisa.toLowerCase()) : item
+      })
+      .map((item, index) => (
         <Card key={index}>
           <h1>{item.name}</h1>
           <img src={item.image} alt={item.name} />
