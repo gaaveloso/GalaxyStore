@@ -14,40 +14,42 @@ const Main = (props) => {
       name: "Galáxia de Andrômeda",
       value: 2500,
       image: andromeda,
-      quantidade: 0,
+      quantidade: null,
     },
     {
       id: 2,
       name: "Galáxia do Triângulo",
       value: 1000,
       image: triangulo,
-      quantidade: 0,
+      quantidade: null,
     },
     {
       id: 3,
       name: "Centaurus A",
       value: 3000,
       image: centaurus,
-      quantidade: 0,
+      quantidade: null,
     },
   ];
-
-  useEffect(() => {}, []);
-
-
 
   const onChangeItem = (event) => {
     setCarrinho(event.target.value);
   };
 
-  const somaCarrinho = () => {};
-
-  
   const adicionarCarrinho = (item) => {
-    const novoCarrinho = [...carrinho, item];
-    setCarrinho(novoCarrinho);
-};
-console.log(carrinho)
+    const novoCarrinho = [...carrinho];
+    const produto = item
+    const produtoExistente = novoCarrinho.find((item) => {
+      return item.id === produto.id
+    })
+    if (produtoExistente) {
+      produtoExistente.quantidade++
+      produtoExistente.precoTotal = produtoExistente.quantidade * produtoExistente.value
+    } else {
+      novoCarrinho.push({ ...produto, quantidade: 1, precoTotal: produto.value })
+    }
+    setCarrinho(novoCarrinho)
+  };
 
   return (
     <Container>
@@ -56,7 +58,6 @@ console.log(carrinho)
           <h1>{item.name}</h1>
           <img src={item.image} alt={item.name} />
           <p>Preço: {item.value}</p>
-          <p>Quantidade: {item.quantidade}</p>
           <button
             onClick={() => adicionarCarrinho(item)}
             onChange={onChangeItem}
@@ -65,7 +66,7 @@ console.log(carrinho)
           </button>
         </Card>
       ))}
-      <Carrinho carrinho={carrinho} setCarrinho={setCarrinho}/>
+      <Carrinho carrinho={carrinho} setCarrinho={setCarrinho} />
     </Container>
   );
 };
