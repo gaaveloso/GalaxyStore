@@ -38,38 +38,66 @@ const Main = (props) => {
 
   const adicionarCarrinho = (item) => {
     const novoCarrinho = [...carrinho];
-    const produto = item
+    const produto = item;
     const produtoExistente = novoCarrinho.find((item) => {
-      return item.id === produto.id
-    })
+      return item.id === produto.id;
+    });
     if (produtoExistente) {
-      produtoExistente.quantidade++
-      produtoExistente.precoTotal = produtoExistente.quantidade * produtoExistente.value
+      produtoExistente.quantidade++;
+      produtoExistente.precoTotal =
+        produtoExistente.quantidade * produtoExistente.value;
     } else {
-      novoCarrinho.push({ ...produto, quantidade: 1, precoTotal: produto.value })
+      novoCarrinho.push({
+        ...produto,
+        quantidade: 1,
+        precoTotal: produto.value,
+      });
     }
-    setCarrinho(novoCarrinho)
+    setCarrinho(novoCarrinho);
   };
 
   return (
     <Container>
       {obj
-      .filter((item) => {
-        return props.pesquisa ? item.name.toLowerCase().includes(props.pesquisa.toLowerCase()) : item
-      })
-      .map((item, index) => (
-        <Card key={index}>
-          <h1>{item.name}</h1>
-          <img src={item.image} alt={item.name} />
-          <p>Preço: {item.value}</p>
-          <button
-            onClick={() => adicionarCarrinho(item)}
-            onChange={onChangeItem}
-          >
-            Adicionar ao carrinho
-          </button>
-        </Card>
-      ))}
+        .filter((item) => {
+          return item.value >= props.minValue
+        })
+        .filter((item) => {
+          return props.maxValue ? item.value <= props.maxValue : item
+        })
+        .filter((item) => {
+          return props.pesquisa
+            ? item.name.toLowerCase().includes(props.pesquisa.toLowerCase())
+            : item;
+        })
+        .sort((a, b) => {
+          if (props.order === "cresc") {
+            if (a.name < b.name) {
+              return -1;
+            } else {
+              return 1;
+            }
+          } else if (props.order === "decresc") {
+            if (a.name < b.name) {
+              return 1;
+            } else {
+              return -1;
+            }
+          }
+        })
+        .map((item, index) => (
+          <Card key={index}>
+            <h1>{item.name}</h1>
+            <img src={item.image} alt={item.name} />
+            <p>Preço: {item.value}</p>
+            <button
+              onClick={() => adicionarCarrinho(item)}
+              onChange={onChangeItem}
+            >
+              Adicionar ao carrinho
+            </button>
+          </Card>
+        ))}
       <Carrinho carrinho={carrinho} setCarrinho={setCarrinho} />
     </Container>
   );
