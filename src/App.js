@@ -8,11 +8,32 @@ import GlobalStyled from './GlobalStyled';
 function App() {
 
   const [pesquisa, setPesquisa] = useState("")
+  const [order, setOrder] = useState("cresc")
+  const [maxValue, setMaxValue] = useState("")
+  const [minValue, setMinValue] = useState("")
 
   return (
     <>
-      <Header pesquisa={pesquisa} setPesquisa={setPesquisa} />
-      <Main pesquisa={pesquisa} setPesquisa={setPesquisa} />
+      <Header
+      pesquisa={pesquisa}
+      setPesquisa={setPesquisa}
+      order={order}
+      setOrder={setOrder}
+      maxValue={maxValue}
+      setMaxValue={setMaxValue}
+      minValue={minValue}
+      setMinValue={setMinValue}
+      />
+      <Main
+      pesquisa={pesquisa}
+      setPesquisa={setPesquisa}
+      order={order}
+      setOrder={setOrder}
+      maxValue={maxValue}
+      setMaxValue={setMaxValue}
+      minValue={minValue}
+      setMinValue={setMinValue}
+      />
       <Footer/>
       <GlobalStyled/>
     </>

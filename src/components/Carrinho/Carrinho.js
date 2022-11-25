@@ -8,6 +8,11 @@ const Carrinho = (props) => {
         totalCarrinho = totalCarrinho + props.carrinho[i].precoTotal
     }
 
+    const removerItem = (item) => {
+        item.quantidade = item.quantidade - 1
+        console.log(item)
+    }
+
     return (
         <div>
             <h1>Carrinho: </h1>
@@ -15,6 +20,7 @@ const Carrinho = (props) => {
                 return (
                 <div key={index}>
                     <p>x{item.quantidade} {item.name} - {item.value} </p>
+                    <button onClick={()=>removerItem(item)}>Remover</button>
                 </div>
                 )
             })}
