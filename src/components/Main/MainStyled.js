@@ -30,7 +30,7 @@ export const Card = styled.div`
   }
 
   img {
-    height: 12vh;
+    height: 16vh;
     width: 12vw;
   }
 

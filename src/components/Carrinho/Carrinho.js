@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, CarrinhoDiv } from "./CarrinhoStyled";
+import { Container, CarrinhoDiv, Compras } from "./CarrinhoStyled";
 import lixeira from "../../img/caixote-de-lixo.png";
 const Carrinho = (props) => {
   let totalCarrinho = 0;
@@ -46,13 +46,16 @@ const Carrinho = (props) => {
           </CarrinhoDiv>
         );
       })}
-      <h1>
-        Total:{" "}
-        {totalCarrinho.toLocaleString("pt-br", {
-          style: "currency",
-          currency: "BRL",
-        })}
-      </h1>
+      <Compras>
+        <h1>
+          Total:{" "}
+          {totalCarrinho.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </h1>
+        <button>FINALIZAR COMPRA</button>
+      </Compras>
     </Container>
   );
 };
