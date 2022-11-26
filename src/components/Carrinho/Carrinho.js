@@ -1,7 +1,8 @@
 import React from "react";
-
+import { Container, CarrinhoDiv } from "./CarrinhoStyled";
+import lixeira from "../../img/caixote-de-lixo.png";
 const Carrinho = (props) => {
-  let totalCarrinho = null;
+  let totalCarrinho = 0;
 
   for (let i = 0; i < props.carrinho.length; i++) {
     totalCarrinho = totalCarrinho + props.carrinho[i].precoTotal;
@@ -22,22 +23,37 @@ const Carrinho = (props) => {
     }
     props.setCarrinho(novoCarrinho);
   };
-
   return (
-    <div>
+    <Container>
       <h1>Carrinho: </h1>
       {props.carrinho.map((item, index) => {
         return (
-          <div key={index}>
-            <p>
-              x{item.quantidade} {item.name} - {item.value}{" "}
-            </p>
-            <button onClick={() => removerItem(item)}>Remover</button>
-          </div>
+          <CarrinhoDiv>
+            <div key={index}>
+              <p>
+                x{item.quantidade} {item.name} -{" "}
+                {item.value.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                })}{" "}
+              </p>
+              <div>
+                <button onClick={() => removerItem(item)}>
+                  <img src={lixeira} />
+                </button>
+              </div>
+            </div>
+          </CarrinhoDiv>
         );
       })}
-      <h1>Total: {totalCarrinho}</h1>
-    </div>
+      <h1>
+        Total:{" "}
+        {totalCarrinho.toLocaleString("pt-br", {
+          style: "currency",
+          currency: "BRL",
+        })}
+      </h1>
+    </Container>
   );
 };
 
