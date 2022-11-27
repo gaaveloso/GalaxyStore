@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  text-align: center;
+
   height: 54vh;
   section {
     border: 5px solid #bb96dc;
     margin: 50px auto;
-    width: 20vw;
+    width: 17vw;
     border-radius: 10px;
     padding: 10px 0 0 10px;
   }
@@ -32,7 +34,7 @@ export const Compras = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-
+  
   button {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -45,7 +47,8 @@ export const Compras = styled.div`
     border: none;
     background-color: #bb96dc;
     transition: all 0.5s;
-
+    text-align: center;
+    justify-content: center;
     :hover {
       background-color: #412279;
       color: white;

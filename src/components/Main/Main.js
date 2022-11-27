@@ -7,7 +7,7 @@ import terra from "../../img/terra.png";
 import venus from "../../img/venus.png";
 import carrinhoCompras from "../../img/carrinho-de-compras.png";
 import Carrinho from "../Carrinho/Carrinho";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Main = (props) => {
   const [carrinho, setCarrinho] = useState([]);
@@ -84,6 +84,22 @@ const Main = (props) => {
     }
     setCarrinho(novoCarrinho);
   };
+
+  useEffect(()=>{
+    if(carrinho.length > 0){
+      const carrinhoJson = JSON.stringify(carrinho)
+      localStorage.setItem("carrinho", carrinhoJson)
+    }
+  }, [carrinho])
+
+  useEffect(() => {
+    const carrinhoJson = localStorage.getItem("carrinho")
+    if(carrinhoJson){
+      const carrinhoArray = JSON.parse(carrinhoJson)
+      setCarrinho(carrinhoArray)
+    }
+  }, [])
+
   return (
     <>
       {!props.telaCarrinho ? (
