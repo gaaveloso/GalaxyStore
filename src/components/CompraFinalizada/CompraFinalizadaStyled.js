@@ -12,4 +12,28 @@ export const Container = styled.div`
         padding: 50px;
         border-radius: 10px;
     }
+    button {
+    margin-top: 20px;
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 18px;
+    width: 14vw;
+    height: 5vh;
+    border: none;
+    background-color: #bb96dc;
+    transition: all 0.5s;
+
+    :hover {
+      background-color: #412279;
+      color: white;
+    }
+
+    :active {
+      background-color: black;
+      color: white;
+    }
+    cursor: pointer;
+  }
 `

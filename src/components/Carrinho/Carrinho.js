@@ -12,6 +12,7 @@ const Carrinho = (props) => {
 
   const mudarTelaPedidoFinalizado = () => {
     setTelaPedidoFinalizado(false);
+    props.setCarrinho([])
   };
 
   let totalCarrinho = 0;
@@ -26,6 +27,7 @@ const Carrinho = (props) => {
     const produtoExistente = novoCarrinho.find((item) => {
       return item.id === produto.id;
     });
+
     if (produtoExistente.quantidade > 1) {
       produtoExistente.quantidade--;
       produtoExistente.precoTotal =
@@ -35,12 +37,19 @@ const Carrinho = (props) => {
     }
     props.setCarrinho(novoCarrinho);
   };
+
+  let contadorProdutos = 0;
+
+  for (let i = 0; i < props.carrinho.length; i++) {
+    contadorProdutos = contadorProdutos + props.carrinho[i].quantidade;
+  }
+
   return (
     <>
       {telaPedidoFinalizado ? (
         <Container>
           <section>
-            <h1>Total de produtos: </h1>
+            <h1>Total de produtos: {contadorProdutos}</h1>
             <h1>Carrinho: </h1>
             {props.carrinho.map((item, index) => {
               return (
@@ -48,10 +57,7 @@ const Carrinho = (props) => {
                   <div>
                     <p>
                       x{item.quantidade} {item.name} -{" "}
-                      {item.value.toLocaleString("pt-br", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}{" "}
+                      {item.value}{" "}
                     </p>
                     <div>
                       <button onClick={() => removerItem(item)}>
@@ -70,15 +76,18 @@ const Carrinho = (props) => {
                   currency: "BRL",
                 })}
               </h1>
-              <button onClick={mudarTelaCarrinho}>CONTINUE COMPRANDO</button>
+              <button onClick={mudarTelaCarrinho}>Continue Comprando</button>
               <button onClick={mudarTelaPedidoFinalizado}>
-                FINALIZAR COMPRA
+                Finalizar Compra
               </button>
             </Compras>
           </section>
         </Container>
       ) : (
-        <CompraFinalizada />
+        <CompraFinalizada
+          setTelaCarrinho={props.setTelaCarrinho}
+          mudarTelaCarrinho={mudarTelaCarrinho}
+        />
       )}
     </>
   );
