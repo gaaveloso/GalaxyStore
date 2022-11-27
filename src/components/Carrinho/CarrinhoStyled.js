@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  border: 1px solid #bb96dc;
-  width: 20vw;
-  border-radius: 10px;
-  padding: 10px 0 0 10px;
+  height: 54vh;
+  section {
+    border: 5px solid #bb96dc;
+    margin: 50px auto;
+    width: 20vw;
+    border-radius: 10px;
+    padding: 10px 0 0 10px;
+  }
 `;
 
 export const CarrinhoDiv = styled.div`
@@ -30,11 +34,11 @@ export const Compras = styled.div`
   margin-top: 20px;
 
   button {
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
     border-radius: 10px;
-    justify-content: center;
-    padding: 10px 0;
+    padding: 10px;
     font-size: 18px;
     width: 14vw;
     height: 5vh;

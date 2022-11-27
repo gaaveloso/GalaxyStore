@@ -8,20 +8,19 @@ export const Container = styled.div`
 export const Home = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  width: 90vw;
 `;
 export const Card = styled.div`
   height: 40vh;
   width: 15vw;
+  margin: 10px;
   background-color: white;
   border: 1px solid #bb96dc;
-  margin-top: 20px;
   color: black;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
   border-radius: 10px;
   padding: 10px;
 
@@ -54,11 +53,27 @@ export const Card = styled.div`
       background-color: #412279;
       color: white;
     }
-    
+
     :active {
       background-color: black;
       color: white;
     }
+    cursor: pointer;
+  }
+`;
+
+export const ButtonCarrinho = styled.div`
+  margin-top: 250px;
+  margin-right: 100px;
+  img {
+    width: 150px;
+    height: 150px;
+  }
+  button {
+    background: none;
+    border: none;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
   }
 `;

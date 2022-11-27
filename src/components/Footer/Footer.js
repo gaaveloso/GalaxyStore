@@ -6,9 +6,7 @@ import linkedin from "../../img/linkedin.svg.png";
 const Footer = () => {
   return (
     <Container>
-      <div>
-        <img src={logo} />
-      </div>
+      <img src={logo} />
       <Icons>
         <h1>Desenvolvido por: Gabriel Veloso</h1>
         <div>

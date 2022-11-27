@@ -1,4 +1,4 @@
-import { Container, Card, Home } from "./MainStyled";
+import { Container, Card, Home, ButtonCarrinho } from "./MainStyled";
 import jupiter from "../../img/jupiter.png";
 import marte from "../../img/marte.png";
 import mercurio from "../../img/mercurio.webp";
@@ -84,7 +84,6 @@ const Main = (props) => {
     }
     setCarrinho(novoCarrinho);
   };
-
   return (
     <>
       {!props.telaCarrinho ? (
@@ -139,15 +138,18 @@ const Main = (props) => {
                 </Card>
               ))}
           </Home>
-          <button onClick={mudarTelaCarrinho}>
-            <img src={carrinhoCompras} />
-          </button>
+          <ButtonCarrinho>
+            <button onClick={mudarTelaCarrinho}>
+              <img src={carrinhoCompras} />
+            </button>
+          </ButtonCarrinho>
         </Container>
       ) : (
         <Carrinho
-        setTelaCarrinho={props.setTelaCarrinho}
-        carrinho={carrinho}
-        setCarrinho={setCarrinho}/>
+          setTelaCarrinho={props.setTelaCarrinho}
+          carrinho={carrinho}
+          setCarrinho={setCarrinho}
+        />
       )}
     </>
   );
