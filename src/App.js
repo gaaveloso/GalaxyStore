@@ -11,6 +11,7 @@ function App() {
   const [order, setOrder] = useState("cresc");
   const [maxValue, setMaxValue] = useState("");
   const [minValue, setMinValue] = useState("");
+  const [telaCarrinho, setTelaCarrinho] = useState(false)
 
   return (
     <>
@@ -34,6 +35,8 @@ function App() {
         setMaxValue={setMaxValue}
         minValue={minValue}
         setMinValue={setMinValue}
+        telaCarrinho={telaCarrinho}
+        setTelaCarrinho={setTelaCarrinho}
       />
       <Footer />
       <GlobalStyled />

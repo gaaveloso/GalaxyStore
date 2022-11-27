@@ -5,11 +5,16 @@ import mercurio from "../../img/mercurio.webp";
 import saturno from "../../img/saturno.webp";
 import terra from "../../img/terra.png";
 import venus from "../../img/venus.png";
+import carrinhoCompras from "../../img/carrinho-de-compras.png";
 import Carrinho from "../Carrinho/Carrinho";
 import { useState } from "react";
 
 const Main = (props) => {
   const [carrinho, setCarrinho] = useState([]);
+
+  const mudarTelaCarrinho = () => {
+    props.setTelaCarrinho(true);
+  };
 
   const obj = [
     {
@@ -81,51 +86,70 @@ const Main = (props) => {
   };
 
   return (
-    <Container>
-      <Home>
-        {obj
-          .filter((item) => {
-            return item.value >= props.minValue;
-          })
-          .filter((item) => {
-            return props.maxValue ? item.value <= props.maxValue : item;
-          })
-          .filter((item) => {
-            return props.pesquisa
-              ? item.name.toLowerCase().includes(props.pesquisa.toLowerCase())
-              : item;
-          })
-          .sort((a, b) => {
-            if (props.order === "cresc") {
-              if (a.name < b.name) {
-                return -1;
-              } else {
-                return 1;
-              }
-            } else if (props.order === "decresc") {
-              if (a.name < b.name) {
-                return 1;
-              } else {
-                return -1;
-              }
-            }
-          })
-          .map((item, index) => (
-            <Card key={index}>
-              <h1>{item.name}</h1>
-              <img src={item.image} alt={item.name} />
-              <p>Preço: {item.value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</p>
-              <button
-                onClick={() => adicionarCarrinho(item)}
-                onChange={onChangeItem}
-              >
-                Comprar
-              </button>
-            </Card>
-          ))}
-      </Home>
-      <Carrinho carrinho={carrinho} setCarrinho={setCarrinho} />
-    </Container>
+    <>
+      {!props.telaCarrinho ? (
+        <Container>
+          <Home>
+            {obj
+              .filter((item) => {
+                return item.value >= props.minValue;
+              })
+              .filter((item) => {
+                return props.maxValue ? item.value <= props.maxValue : item;
+              })
+              .filter((item) => {
+                return props.pesquisa
+                  ? item.name
+                      .toLowerCase()
+                      .includes(props.pesquisa.toLowerCase())
+                  : item;
+              })
+              .sort((a, b) => {
+                if (props.order === "cresc") {
+                  if (a.name < b.name) {
+                    return -1;
+                  } else {
+                    return 1;
+                  }
+                } else if (props.order === "decresc") {
+                  if (a.name < b.name) {
+                    return 1;
+                  } else {
+                    return -1;
+                  }
+                }
+              })
+              .map((item, index) => (
+                <Card key={index}>
+                  <h1>{item.name}</h1>
+                  <img src={item.image} alt={item.name} />
+                  <p>
+                    Preço:{" "}
+                    {item.value.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </p>
+                  <button
+                    onClick={() => adicionarCarrinho(item)}
+                    onChange={onChangeItem}
+                  >
+                    Comprar
+                  </button>
+                </Card>
+              ))}
+          </Home>
+          <button onClick={mudarTelaCarrinho}>
+            <img src={carrinhoCompras} />
+          </button>
+        </Container>
+      ) : (
+        <Carrinho
+        setTelaCarrinho={props.setTelaCarrinho}
+        carrinho={carrinho}
+        setCarrinho={setCarrinho}/>
+      )}
+    </>
   );
 };
 
