@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, CarrinhoDiv, Compras } from "./CarrinhoStyled";
 import lixeira from "../../img/caixote-de-lixo.png";
+import CompraFinalizada from "../CompraFinalizada/CompraFinalizada";
+
 const Carrinho = (props) => {
+
+  const [telaPedidoFinalizado, setTelaPedidoFinalizado] = useState(true)
+
+  const mudarTelaCarrinho = () => {
+    props.setTelaCarrinho(false);
+  };
+
+  const mudarTelaPedidoFinalizado = () => {
+    setTelaPedidoFinalizado(false)
+  }
+
   let totalCarrinho = 0;
 
   for (let i = 0; i < props.carrinho.length; i++) {
@@ -24,39 +37,46 @@ const Carrinho = (props) => {
     props.setCarrinho(novoCarrinho);
   };
   return (
-    <Container>
-      <h1>Carrinho: </h1>
-      {props.carrinho.map((item, index) => {
-        return (
-          <CarrinhoDiv>
-            <div key={index}>
-              <p>
-                x{item.quantidade} {item.name} -{" "}
-                {item.value.toLocaleString("pt-br", {
-                  style: "currency",
-                  currency: "BRL",
-                })}{" "}
-              </p>
-              <div>
-                <button onClick={() => removerItem(item)}>
-                  <img src={lixeira} />
-                </button>
-              </div>
-            </div>
-          </CarrinhoDiv>
-        );
-      })}
-      <Compras>
-        <h1>
-          Total:{" "}
-          {totalCarrinho.toLocaleString("pt-br", {
-            style: "currency",
-            currency: "BRL",
+    <>
+      {telaPedidoFinalizado ? (
+        <Container>
+          <h1>Carrinho: </h1>
+          {props.carrinho.map((item, index) => {
+            return (
+              <CarrinhoDiv>
+                <div key={index}>
+                  <p>
+                    x{item.quantidade} {item.name} -{" "}
+                    {item.value.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}{" "}
+                  </p>
+                  <div>
+                    <button onClick={() => removerItem(item)}>
+                      <img src={lixeira} />
+                    </button>
+                  </div>
+                </div>
+              </CarrinhoDiv>
+            );
           })}
-        </h1>
-        <button>FINALIZAR COMPRA</button>
-      </Compras>
-    </Container>
+          <Compras>
+            <h1>
+              Total:{" "}
+              {totalCarrinho.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </h1>
+            <button onClick={mudarTelaCarrinho}>CONTINUE COMPRANDO</button>
+            <button onClick={mudarTelaPedidoFinalizado}>FINALIZAR COMPRA</button>
+          </Compras>
+        </Container>
+      ) : (
+        <CompraFinalizada />
+      )}
+    </>
   );
 };
 
