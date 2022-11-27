@@ -1,10 +1,14 @@
+import { Container } from "./CompraFinalizadaStyled";
+
 const CompraFinalizada = () => {
   return (
-    <>
-      <h1>Compra Finalizada</h1>
-      <p>Seu produto chegará em breve</p>
-      <p>Volte Sempre!</p>
-    </>
+    <Container>
+      <div>
+        <h1>Compra Finalizada</h1>
+        <p>Seu produto chegará em breve</p>
+        <p>Volte Sempre!</p>
+      </div>
+    </Container>
   );
 };
 

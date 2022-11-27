@@ -4,16 +4,15 @@ import lixeira from "../../img/caixote-de-lixo.png";
 import CompraFinalizada from "../CompraFinalizada/CompraFinalizada";
 
 const Carrinho = (props) => {
-
-  const [telaPedidoFinalizado, setTelaPedidoFinalizado] = useState(true)
+  const [telaPedidoFinalizado, setTelaPedidoFinalizado] = useState(true);
 
   const mudarTelaCarrinho = () => {
     props.setTelaCarrinho(false);
   };
 
   const mudarTelaPedidoFinalizado = () => {
-    setTelaPedidoFinalizado(false)
-  }
+    setTelaPedidoFinalizado(false);
+  };
 
   let totalCarrinho = 0;
 
@@ -40,38 +39,43 @@ const Carrinho = (props) => {
     <>
       {telaPedidoFinalizado ? (
         <Container>
-          <h1>Carrinho: </h1>
-          {props.carrinho.map((item, index) => {
-            return (
-              <CarrinhoDiv>
-                <div key={index}>
-                  <p>
-                    x{item.quantidade} {item.name} -{" "}
-                    {item.value.toLocaleString("pt-br", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}{" "}
-                  </p>
+          <section>
+            <h1>Total de produtos: </h1>
+            <h1>Carrinho: </h1>
+            {props.carrinho.map((item, index) => {
+              return (
+                <CarrinhoDiv key={index}>
                   <div>
-                    <button onClick={() => removerItem(item)}>
-                      <img src={lixeira} />
-                    </button>
+                    <p>
+                      x{item.quantidade} {item.name} -{" "}
+                      {item.value.toLocaleString("pt-br", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}{" "}
+                    </p>
+                    <div>
+                      <button onClick={() => removerItem(item)}>
+                        <img src={lixeira} />
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </CarrinhoDiv>
-            );
-          })}
-          <Compras>
-            <h1>
-              Total:{" "}
-              {totalCarrinho.toLocaleString("pt-br", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </h1>
-            <button onClick={mudarTelaCarrinho}>CONTINUE COMPRANDO</button>
-            <button onClick={mudarTelaPedidoFinalizado}>FINALIZAR COMPRA</button>
-          </Compras>
+                </CarrinhoDiv>
+              );
+            })}
+            <Compras>
+              <h1>
+                Total:{" "}
+                {totalCarrinho.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </h1>
+              <button onClick={mudarTelaCarrinho}>CONTINUE COMPRANDO</button>
+              <button onClick={mudarTelaPedidoFinalizado}>
+                FINALIZAR COMPRA
+              </button>
+            </Compras>
+          </section>
         </Container>
       ) : (
         <CompraFinalizada />

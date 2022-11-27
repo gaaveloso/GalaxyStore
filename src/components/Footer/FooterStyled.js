@@ -5,10 +5,12 @@ export const Container = styled.div`
   display: flex;
   color: white;
   background-color: #533d8b;
+
   img {
     width: 200px;
     height: 200px;
   }
+  
 `;
 
 export const Icons = styled.div`
@@ -16,7 +18,7 @@ export const Icons = styled.div`
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
-  width: 100%;
+  width: 80%;
   img {
     width: 50px;
     height: 50px;
