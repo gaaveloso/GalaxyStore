@@ -82,23 +82,22 @@ const Main = (props) => {
         precoTotal: produto.value,
       });
     }
+    
+      const carrinhoJson = JSON.stringify(novoCarrinho);
+      localStorage.setItem("carrinho", carrinhoJson);
+    
     setCarrinho(novoCarrinho);
+    
   };
-
-  useEffect(()=>{
-    if(carrinho.length > 0){
-      const carrinhoJson = JSON.stringify(carrinho)
-      localStorage.setItem("carrinho", carrinhoJson)
-    }
-  }, [carrinho])
-
+  
   useEffect(() => {
-    const carrinhoJson = localStorage.getItem("carrinho")
-    if(carrinhoJson){
-      const carrinhoArray = JSON.parse(carrinhoJson)
-      setCarrinho(carrinhoArray)
+    const carrinhoJson = localStorage.getItem("carrinho");
+    if (carrinhoJson) {
+      const carrinhoArray = JSON.parse(carrinhoJson);
+      setCarrinho(carrinhoArray);
     }
-  }, [])
+  }, []);
+
 
   return (
     <>

@@ -35,6 +35,10 @@ const Carrinho = (props) => {
     } else if ((produtoExistente.quantidade = 1)) {
       novoCarrinho.pop(produtoExistente);
     }
+
+    const carrinhoJson = JSON.stringify(novoCarrinho);
+    localStorage.setItem("carrinho", carrinhoJson);
+    
     props.setCarrinho(novoCarrinho);
   };
 
