@@ -10,10 +10,10 @@ const Footer = () => {
       <Icons>
         <h1>Desenvolvido por: Gabriel Veloso</h1>
         <div>
-          <a href="https://github.com/gaaveloso">
+          <a href="https://github.com/gaaveloso" target='_blank'>
             <img src={github} />
           </a>
-          <a href="https://www.linkedin.com/in/gabriel-veloso-aa904924b/">
+          <a href="https://www.linkedin.com/in/gabriel-veloso-aa904924b/" target='_blank'>
             <img src={linkedin} />
           </a>
         </div>
