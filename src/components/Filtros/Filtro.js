@@ -33,8 +33,8 @@ const Filtros = (props) => {
           value={props.pesquisa}
         />
         <select value={props.order} onChange={handleOrderSearch}>
-          <option value="cresc">Crescente</option>
-          <option value="decresc">Decrescente</option>
+          <option value="cresc">Crescente A-Z</option>
+          <option value="decresc">Decrescente Z-A</option>
         </select>
       </Search>
     </Container>

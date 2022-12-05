@@ -37,7 +37,7 @@ export const Search = styled.div`
   }
   select {
     background-color: #e3c9df;
-    width: 120px;
+    width: 140px;
     border: none;
     font-size: 16px;
     
