@@ -7,6 +7,9 @@ export const Container = styled.div`
     height: 15vh;
     border: 1px solid black;
     background-image: linear-gradient(#1b1145, #8749bc, #bb96dc);
+    @media (max-width: 800px) {
+        width: 100vw;
+    }
 
     img {
         margin-top: 50px;

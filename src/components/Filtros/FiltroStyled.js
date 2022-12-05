@@ -10,6 +10,10 @@ export const Container = styled.div`
   color: white;
   height: 5vh;
   font-size: 18px;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    height: 9.5vh;
+  }
   div {
     display: flex;
     z-index: 1;
@@ -21,7 +25,6 @@ export const Container = styled.div`
 `;
 
 export const Search = styled.div`
-  width: 40vw;
   gap: 10px;
   height: 24px;
   input {
@@ -46,5 +49,8 @@ export const SearchValue = styled.div`
   gap: 10px;
   input {
     width: 105px;
+    @media (max-width: 800px) {
+    width: 20vw;
+  }
   }
 `;

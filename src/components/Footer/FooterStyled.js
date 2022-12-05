@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   border: 1px solid black;
   display: flex;
+  width: 100vw;
   color: white;
   background-color: #533d8b;
-
   img {
     width: 200px;
     height: 200px;
@@ -22,6 +22,10 @@ export const Icons = styled.div`
   img {
     width: 50px;
     height: 50px;
+    @media (max-width: 800px) {
+    width: 40px;
+    height: 40px;
+    }
   }
   a {
     img {
@@ -37,7 +41,11 @@ export const Icons = styled.div`
     display: flex;
     justify-content: center;
     gap: 40px;
+    @media (max-width: 800px) {
+      padding: 0px;
   }
-  p {
+  }
+  h1 {
+    font-size: 23px;
   }
 `;

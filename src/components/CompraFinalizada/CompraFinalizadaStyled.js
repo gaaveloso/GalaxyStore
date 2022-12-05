@@ -6,11 +6,25 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width:800px) {
+      width: 75vw;
+      margin: 0 auto;
+    }
     div{
         border: 4px solid #bb96dc;
         text-align: center;
         padding: 50px;
         border-radius: 10px;
+        @media (max-width:800px) {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+      h1{
+        @media (max-width:800px) {
+          margin-bottom: 5px;
+        }
+      }
     }
     button {
     margin-top: 20px;
@@ -35,5 +49,21 @@ export const Container = styled.div`
       color: white;
     }
     cursor: pointer;
+    @media (max-width:800px) {
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 0;
+      display: block;
+      width: 30vw;
+      height: 7vh;
+    }
+    @media (max-width:1024px){
+      margin: 0 auto;
+      margin-top: 10px;
+      padding: 0;
+      display: block;
+      width: 30vw;
+      height: 7vh;
+    }
   }
 `

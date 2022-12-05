@@ -65,6 +65,7 @@ const Main = (props) => {
     setCarrinho(event.target.value);
   };
 
+  //Adicionando item no carrinho
   const adicionarCarrinho = (item) => {
     const novoCarrinho = [...carrinho];
     const produto = item;

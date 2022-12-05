@@ -6,21 +6,25 @@ import CompraFinalizada from "../CompraFinalizada/CompraFinalizada";
 const Carrinho = (props) => {
   const [telaPedidoFinalizado, setTelaPedidoFinalizado] = useState(true);
 
+  //Função pra mudar de tela
   const mudarTelaCarrinho = () => {
     props.setTelaCarrinho(false);
   };
 
+  //Função pra mudar de tela
   const mudarTelaPedidoFinalizado = () => {
     setTelaPedidoFinalizado(false);
     props.setCarrinho([])
   };
 
+  //Soma dos produtos no carrinho
   let totalCarrinho = 0;
 
   for (let i = 0; i < props.carrinho.length; i++) {
     totalCarrinho = totalCarrinho + props.carrinho[i].precoTotal;
   }
 
+  //Remover produto do carrinho
   const removerItem = (item) => {
     const novoCarrinho = [...props.carrinho];
     const produto = item;
@@ -28,6 +32,7 @@ const Carrinho = (props) => {
       return item.id === produto.id;
     });
 
+    //Faz a soma do valor total
     if (produtoExistente.quantidade > 1) {
       produtoExistente.quantidade--;
       produtoExistente.precoTotal =
@@ -36,12 +41,14 @@ const Carrinho = (props) => {
       novoCarrinho.pop(produtoExistente);
     }
 
+    //Guarda as informações no local storage
     const carrinhoJson = JSON.stringify(novoCarrinho);
     localStorage.setItem("carrinho", carrinhoJson);
     
     props.setCarrinho(novoCarrinho);
   };
 
+  //Contador de produtos adicionados no carrinho
   let contadorProdutos = 0;
 
   for (let i = 0; i < props.carrinho.length; i++) {
