@@ -34,7 +34,7 @@ const Main = (props) => {
     {
       id: 3,
       name: "Mercurio",
-      value: 3000,
+      value: 4500,
       image: mercurio,
       quantidade: null,
     },
@@ -48,14 +48,14 @@ const Main = (props) => {
     {
       id: 5,
       name: "Terra",
-      value: 3000,
+      value: 3500,
       image: terra,
       quantidade: null,
     },
     {
       id: 6,
       name: "Venus",
-      value: 3000,
+      value: 4000,
       image: venus,
       quantidade: null,
     },
