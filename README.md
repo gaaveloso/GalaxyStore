@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Galaxy Store
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/gaaveloso/GalaxyStore/blob/master/LICENSE) 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Sobre o projeto
 
-## Available Scripts
+https://gaaveloso.github.io/GalaxyStore/
 
-In the project directory, you can run:
+Projeto de e-Commerce de planetas, desenvolvido em React JS. Neste projeto tem uma lista de produtos que pode ser adicionado/removido do carrinho, fazendo a soma dos produtos adicionados. Filtro de ordenação por busca, crescente/decrescente e por valores mínimo/máximo.
 
-### `npm start`
+## Layout web
+![Web 1](https://github.com/gaaveloso/GalaxyStore/blob/master/src/assets/web1.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Web 2](https://github.com/gaaveloso/GalaxyStore/blob/master/src/assets/web2.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Web 3](https://github.com/gaaveloso/GalaxyStore/blob/master/src/assets/web3.png)
 
-### `npm test`
+# Tecnologias utilizadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ReactJS
+- React Hooks
+- Styled Components
 
-### `npm run build`
+# Como executar o projeto
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Front end web
+Pré-requisitos: npm 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# clonar repositório
+git clone https://github.com/gaaveloso/GalaxyStore.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# entrar na pasta do projeto
+cd galaxy-store
 
-### `npm run eject`
+# instalar dependências
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# executar o projeto
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Autor
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Gabriel Veloso Rezende
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+https://www.linkedin.com/in/gaveloso/
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

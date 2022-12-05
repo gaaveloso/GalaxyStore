@@ -13,7 +13,7 @@ const Footer = () => {
           <a href="https://github.com/gaaveloso" target='_blank'>
             <img src={github} />
           </a>
-          <a href="https://www.linkedin.com/in/gabriel-veloso-aa904924b/" target='_blank'>
+          <a href="https://www.linkedin.com/in/gaveloso/" target='_blank'>
             <img src={linkedin} />
           </a>
         </div>
