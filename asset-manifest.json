@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/GalaxyStore/static/css/main.073c9b0a.css",
+    "main.js": "/GalaxyStore/static/js/main.f951e465.js",
+    "static/js/787.1cd10303.chunk.js": "/GalaxyStore/static/js/787.1cd10303.chunk.js",
+    "static/media/eu.png": "/GalaxyStore/static/media/eu.58ff3de72dfdf41f3a5d.png",
+    "static/media/venus.png": "/GalaxyStore/static/media/venus.c6ca3fcd32f4b4219e20.png",
+    "static/media/jupiter.png": "/GalaxyStore/static/media/jupiter.67b68aa84b4fd65c68c2.png",
+    "static/media/marte.png": "/GalaxyStore/static/media/marte.be5784d3c8b2e2f7686e.png",
+    "static/media/astronauta.png": "/GalaxyStore/static/media/astronauta.cba4a37b6b9c1cba765f.png",
+    "static/media/terra.png": "/GalaxyStore/static/media/terra.4bc8d8141203cd45f7a0.png",
+    "static/media/mercurio.webp": "/GalaxyStore/static/media/mercurio.85dc1c54dbdc9eec3e4f.webp",
+    "static/media/saturno.webp": "/GalaxyStore/static/media/saturno.bdf0d04ae920509c073b.webp",
+    "static/media/linkedin.svg.png": "/GalaxyStore/static/media/linkedin.svg.66ffd29ac1bb3de67249.png",
+    "static/media/carrinho-de-compras.png": "/GalaxyStore/static/media/carrinho-de-compras.3d6d65fd4e520ab5a2ad.png",
+    "index.html": "/GalaxyStore/index.html",
+    "main.073c9b0a.css.map": "/GalaxyStore/static/css/main.073c9b0a.css.map",
+    "main.f951e465.js.map": "/GalaxyStore/static/js/main.f951e465.js.map",
+    "787.1cd10303.chunk.js.map": "/GalaxyStore/static/js/787.1cd10303.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.f951e465.js"
+  ]
+}
